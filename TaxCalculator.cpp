@@ -45,6 +45,19 @@ long getTaxableIncome(long &taxableIncome)
     return taxableIncome;
 }
 
+double computeTax(double taxRate, long taxableIncome, double &tax)
+{
+
+    tax = taxRate * static_cast<double>(taxableIncome);
+    return tax;
+}
+
+void printTax(double &tax)
+{
+    cout << setprecision(2) << fixed;
+    cout << "Your tax is: " << tax;
+}
+
 double getTaxRate(long taxableIncome, int filingStatus, double &taxRate)
 {
     switch(filingStatus)
@@ -156,15 +169,3 @@ double getTaxRate(long taxableIncome, int filingStatus, double &taxRate)
 
 }
 
-double computeTax(double taxRate, long taxableIncome, double &tax)
-{
-
-    tax = taxRate * static_cast<double>(taxableIncome);
-    return tax;
-}
-
-void printTax(double &tax)
-{
-    cout << setprecision(2) << fixed;
-    cout << "Your tax is: " << tax;
-}
